@@ -1,13 +1,4 @@
-public class Bus extends ACar implements Competing {
-
-    @Override
-    public String toString() {
-        return "Bus{" +
-                "model='" + model + '\'' +
-                ", brand='" + brand + '\'' +
-                ", engineVolume=" + engineVolume +
-                '}';
-    }
+public class Bus extends ACar  {
 
     public Bus(String model, String brand, double engineVolume) {
         super(model, brand, engineVolume);
@@ -32,6 +23,15 @@ public class Bus extends ACar implements Competing {
     public void BestLapTime() {
         System.out.println("Лучшее время автобуса на круге");
 
+    }
+
+    @Override
+    public String toString() {
+        return  "Bus{" +
+                "model='" + getModel() + '\'' +
+                ", brand='" + getBrand() + '\'' +
+                ", engineVolume=" + getEngineVolume() +
+                '}';
     }
 
     @Override

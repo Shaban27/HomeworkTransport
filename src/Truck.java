@@ -1,12 +1,14 @@
-public class Truck extends ACar implements Competing {
+public class Truck extends ACar {
     @Override
     public String toString() {
-        return "Truck{" +
-                "model='" + model + '\'' +
-                ", brand='" + brand + '\'' +
-                ", engineVolume=" + engineVolume +
+        return  "Truck{" +
+                "model='" + getModel() + '\'' +
+                ", brand='" + getBrand() + '\'' +
+                ", engineVolume=" + getEngineVolume() +
                 '}';
     }
+
+
 
     public Truck(String model, String brand, double engineVolume) {
         super(model, brand, engineVolume);

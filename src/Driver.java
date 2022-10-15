@@ -56,21 +56,21 @@ public class Driver<D extends ACar & Competing> {
     }
 
     public void startMoving(Car bmw) {
-        System.out.println("Водитель А " + nameOfTheDriver + " управляет автомобилем Б " + motorcar.model + " и будет участвовать в заезде ");
+        System.out.println("Водитель А " + nameOfTheDriver + " управляет автомобилем Б " + motorcar.getModel() + " и будет участвовать в заезде ");
         System.out.println(nameOfTheDriver + havingADriversLicense + "с водительским стажем " +
                 experience + " лет" + " начинает движение на автомобиле " + motorcar.getModel() + motorcar.getBrand()
-                + " с мощностью двигателя " + motorcar.engineVolume);
+                + " с мощностью двигателя " + motorcar.getEngineVolume());
 
     }
 
     public void stay(Truck truck1) {
         System.out.println(nameOfTheDriver + havingADriversLicense + " с водительским стажем, " + experience + " лет " + " остановит грузовик " +
-                motorcar.getModel() + motorcar.getBrand() + " с мощностью двигателя " + motorcar.engineVolume);
+                motorcar.getModel() + motorcar.getBrand() + " с мощностью двигателя " + motorcar.getEngineVolume());
     }
 
     public void refuelTheCar(Bus bus2) {
         System.out.println(nameOfTheDriver + havingADriversLicense + " с водительским стажем, " + experience + " лет " +
-                " заправит автобус " + motorcar.getModel() + motorcar.getBrand() + " с мощностью двигателя " + motorcar.engineVolume);
+                " заправит автобус " + motorcar.getModel() + motorcar.getBrand() + " с мощностью двигателя " + motorcar.getEngineVolume());
     }
 
     @Override

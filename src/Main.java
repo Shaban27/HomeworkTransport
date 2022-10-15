@@ -20,7 +20,7 @@ public class Main {
         vlad.startMoving(bmw);
         Driver<Truck> alex = new Driver<>("Александр", " c водительскими права категории С", 15, truck1);
         alex.stay(truck1);
-        Driver<Bus> petr = new Driver<>("Петр", " водительскими правами категории D", 20, bus2);
+        Driver<Bus> petr = new Driver<>("Петр", " c водительскими правами категории D", 20, bus2);
         petr.refuelTheCar(bus2);
 
 
