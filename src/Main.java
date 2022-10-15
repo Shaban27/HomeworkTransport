@@ -38,9 +38,9 @@ public class Main {
         printInfo(truck3);
         truck3.startMoving();
         truck3.stopMoving();
-        truck2.BestLapTime();
-        truck2.PitStop();
-        truck2.MaxSpeed();
+        truck2.bestLapTime();
+        truck2.pitStop();
+        truck2.maxSpeed();
 
     }
 

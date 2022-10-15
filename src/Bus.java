@@ -12,15 +12,13 @@ public class Bus extends ACar  {
         System.out.println("Законичить движение в гараже");
     }
 
-
-    @Override
-    public void PitStop() {
+    public void pitStop() {
         System.out.println(" Поставить автобус на обочине");
 
     }
 
     @Override
-    public void BestLapTime() {
+    public void bestLapTime() {
         System.out.println("Лучшее время автобуса на круге");
 
     }
@@ -35,14 +33,15 @@ public class Bus extends ACar  {
     }
 
     @Override
-    public void MaxSpeed() {
+    public void maxSpeed() {
         System.out.println("Максимальная скорость автобуса");
 
 
-    }
+    }}
 
 
-}
+
+
 
 
 

@@ -3,7 +3,6 @@ public class Car extends ACar  {
         super(model, brand, engineVolume);
     }
 
-
     @Override
     public String toString() {
         return "Car{" +
@@ -24,22 +23,24 @@ public class Car extends ACar  {
     }
 
     @Override
-    public void PitStop() {
+    public void pitStop() {
         System.out.println(" Поставить машину в гараж");
     }
 
     @Override
-    public void BestLapTime() {
+    public void bestLapTime() {
         System.out.println("Лучшее время автомобиля на круге");
 
     }
 
     @Override
-    public void MaxSpeed() {
+    public void maxSpeed() {
         System.out.println("Максимальная скорость автомобиля");
 
     }
 }
+
+
 
 
 

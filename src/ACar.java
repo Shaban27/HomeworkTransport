@@ -7,7 +7,8 @@ public abstract class ACar implements Competing {
     public ACar(String model, String brand, double engineVolume) {
         this.model = model;
         this.brand = brand;
-        this.engineVolume = engineVolume;
+        setEngineVolume(engineVolume);
+
     }
 
     public String getModel() {
@@ -23,24 +24,19 @@ public abstract class ACar implements Competing {
     }
 
     public void setEngineVolume(double engineVolume) {
-        if (engineVolume > 0) {
-            this.engineVolume = 0;
-        } else {
-            this.engineVolume = engineVolume;
-        }
-
-
+        this.engineVolume = engineVolume;
     }
-
 
     public abstract void startMoving();
 
     public abstract void stopMoving();
 
 
-    public abstract void PitStop();
+    public abstract void pitStop();
 
-    public abstract void BestLapTime();
+    public abstract void bestLapTime();
 
-    public abstract void MaxSpeed();
+    public abstract void maxSpeed();
+
+
 }
