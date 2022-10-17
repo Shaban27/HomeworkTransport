@@ -1,9 +1,18 @@
 public class Truck extends ACar {
 
-
-    public Truck(String model, String brand, double engineVolume) {
+private LoadCapacity loadCapacity;
+    public Truck(String model, String brand, double engineVolume, LoadCapacity loadCapacity) {
         super(model, brand, engineVolume);
+        this.loadCapacity=loadCapacity;
 
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    public void setLoadCapacity(LoadCapacity loadCapacity) {
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -32,16 +41,34 @@ public class Truck extends ACar {
     public void maxSpeed() {
         System.out.println("Максимальная скорость грузового автомобиля");
     }
-        @Override
-        public String toString() {
-            return "Truck{" +
-                    "model='" + getModel() + '\'' +
-                    ", brand='" + getBrand() + '\'' +
-                    ", engineVolume=" + getEngineVolume() +
-                    '}';
+
+    @Override
+    public void determineTheTypeOfCar() {
+        if (loadCapacity==null) {
+            System.out.println("Данных недостаточно");
+        } else {
+            String from = loadCapacity.getFrom() ==null?" " : " от " + loadCapacity.getFrom()+  " т. ";
+            String to = loadCapacity.getFrom()== null?  "  "  : " до "+ loadCapacity.getTo() + " т.";
+            System.out.println("Грузоподъемность грузовика - " +from + to);
+
+
         }
 
     }
+
+
+    @Override
+    public String toString() {
+        return "Truck{" +
+                "model='" + getModel() + '\'' +
+                ", brand='" + getBrand() + '\'' +
+                ", engineVolume=" + getEngineVolume() +
+               "loadCapacity=" + loadCapacity +
+                '}';
+    }
+}
+
+
 
 
 

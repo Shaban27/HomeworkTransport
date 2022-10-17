@@ -1,6 +1,18 @@
 public class Car extends ACar  {
-    public Car(String model, String brand, double engineVolume) {
-        super(model, brand, engineVolume);
+
+  private TypeOfBody typeOfBody;
+    public Car(String model, String brand, double engineVolume, TypeOfBody typeOfBody ) {
+                super(model, brand, engineVolume);
+                this.typeOfBody=typeOfBody;
+        }
+
+
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -36,6 +48,16 @@ public class Car extends ACar  {
     @Override
     public void maxSpeed() {
         System.out.println("Максимальная скорость автомобиля");
+
+    }
+
+    @Override
+    public void determineTheTypeOfCar() {
+        if (typeOfBody==null){
+            System.out.println("Данных недостаточно");
+        } else {
+            System.out.println("Тип авто - " +typeOfBody);
+        }
 
     }
 }

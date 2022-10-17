@@ -1,20 +1,20 @@
 public class Main {
     public static void main(String[] args) {
 
-        Car lada = new Car("Lada ", "Grande", 1.7);
-        Car audi = new Car("Audi ", null, 3.5);
-        Car bmw = new Car("BMW", "Z8", 3.5);
-        Car kia = new Car("Kia ", "Sportage 4 поколение", 1.6);
+        Car lada = new Car("Lada ", "Grande", 1.7, TypeOfBody.HATCHBACK);
+        Car audi = new Car("Audi ", null, 3.5, TypeOfBody.SEDAN);
+        Car bmw = new Car("BMW", "Z8", 3.5, TypeOfBody.CROSSOVER);
+        Car kia = new Car("Kia ", "Sportage 4 поколение", 1.6, TypeOfBody.COUPE);
 
-        Bus bus = new Bus("Ик-008", "Икарус", 8.9);
-        Bus bus1 = new Bus("ЖК-008", "Дэу", 9.5);
-        Bus bus2 = new Bus("ПАЗ", "ТР-208", 9.5);
-        Bus bus3 = new Bus("ЛИАЗ", "ПР-28", 7.5);
+        Bus bus = new Bus("Ик-008", "Икарус", 8.9, Сapacity.BIG);
+        Bus bus1 = new Bus("ЖК-008", "Дэу", 9.5, Сapacity.AVERAGE);
+        Bus bus2 = new Bus("ПАЗ", "ТР-208", 9.5, Сapacity.ESPECIALLY_SMALL);
+        Bus bus3 = new Bus("ЛИАЗ", "ПР-28", 7.5, Сapacity.SMALL);
 
-        Truck truck = new Truck("Газель", "УТ-008", 3.2);
-        Truck truck1 = new Truck("Toyota", "ST-8", 3.2);
-        Truck truck2 = new Truck("BMW", "TY=8", 5.4);
-        Truck truck3 = new Truck("Газель", "УК-28", 9.8);
+        Truck truck = new Truck("Газель", "УТ-008", 3.2, LoadCapacity.N2);
+        Truck truck1 = new Truck("Toyota", "ST-8", 3.2, LoadCapacity.N3);
+        Truck truck2 = new Truck("BMW", "TY=8", 5.4, LoadCapacity.N1);
+        Truck truck3 = new Truck("Газель", "УК-28", 9.8, LoadCapacity.N3);
 
         Driver<Car> vlad = new Driver<>("Владислав", " с водительскими права категории В, ", 20, bmw);
         vlad.startMoving(bmw);
@@ -41,6 +41,14 @@ public class Main {
         truck2.bestLapTime();
         truck2.pitStop();
         truck2.maxSpeed();
+        truck2.determineTheTypeOfCar();
+        lada.determineTheTypeOfCar();
+        bus2.determineTheTypeOfCar();
+        bus3.determineTheTypeOfCar();
+        truck2.determineTheTypeOfCar();
+        truck3.determineTheTypeOfCar();
+        kia.determineTheTypeOfCar();
+
 
     }
 
@@ -54,7 +62,10 @@ public class Main {
 
     private static void printInfo(Truck truck) {
         System.out.println(truck);
-    }
+    };
+
+
+
 
 }
 

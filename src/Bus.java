@@ -1,7 +1,17 @@
 public class Bus extends ACar  {
+    private Сapacity сapacity;
 
-    public Bus(String model, String brand, double engineVolume) {
+    public Bus(String model, String brand, double engineVolume, Сapacity сapacity  ) {
         super(model, brand, engineVolume);
+        this.сapacity=сapacity;
+    }
+
+    public Сapacity getСapacity() {
+        return сapacity;
+    }
+
+    public void setСapacity(Сapacity сapacity) {
+        this.сapacity = сapacity;
     }
 
     public void startMoving() {
@@ -37,7 +47,18 @@ public class Bus extends ACar  {
         System.out.println("Максимальная скорость автобуса");
 
 
-    }}
+    }
+
+    @Override
+    public void determineTheTypeOfCar() {
+        if (сapacity==null) {
+            System.out.println("Данных недостаточно");
+        } else {
+            System.out.println("Вместимость автобуса - от " + сapacity.getFrom()+ "чел " + " до " + сapacity.getTo());
+
+
+    }
+}}
 
 
 
