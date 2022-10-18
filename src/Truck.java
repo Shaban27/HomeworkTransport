@@ -56,6 +56,11 @@ private LoadCapacity loadCapacity;
 
     }
 
+    @Override
+    public boolean passDiagnostics() {
+        return Math.random() >0.8;
+    }
+
 
     @Override
     public String toString() {

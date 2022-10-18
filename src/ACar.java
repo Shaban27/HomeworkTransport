@@ -14,6 +14,7 @@ public abstract class ACar implements Competing {
 
 
 
+
     public String getModel() {
         return model;
     }
@@ -43,6 +44,9 @@ public abstract class ACar implements Competing {
 
 
     public abstract void determineTheTypeOfCar();
+
+    public abstract boolean passDiagnostics();
+
 
 
 }

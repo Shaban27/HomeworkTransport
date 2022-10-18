@@ -19,6 +19,7 @@ public class Driver<D extends ACar & Competing> {
     }
 
     public void setHavingADriversLicense(String havingADriversLicense) {
+
         this.havingADriversLicense = havingADriversLicense;
     }
 
@@ -35,8 +36,11 @@ public class Driver<D extends ACar & Competing> {
     }
 
     public void setMotorcar(D motorcar) {
-        this.motorcar = motorcar;
-    }
+          if(motorcar ==null) {
+              throw new IllegalArgumentException("Какая категрия прав");
+          }
+        this.motorcar =motorcar;
+}
 
     public Driver(String nameOfTheDriver, String havingADriversLicense, int experience, D motorcar) {
         if (nameOfTheDriver != null && !nameOfTheDriver.isEmpty() && !nameOfTheDriver.isBlank()) {
@@ -50,10 +54,9 @@ public class Driver<D extends ACar & Competing> {
             this.havingADriversLicense = havingADriversLicense;
         }
         this.experience = experience;
-        if (motorcar != null) {
-            this.motorcar = motorcar;
-        }
+        setMotorcar(motorcar);
     }
+
 
     public void startMoving(Car bmw) {
         System.out.println("Водитель А " + nameOfTheDriver + " управляет автомобилем Б " + motorcar.getModel() + " и будет участвовать в заезде ");

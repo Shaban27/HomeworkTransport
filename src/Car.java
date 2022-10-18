@@ -1,10 +1,11 @@
-public class Car extends ACar  {
+public class Car extends ACar {
 
-  private TypeOfBody typeOfBody;
-    public Car(String model, String brand, double engineVolume, TypeOfBody typeOfBody ) {
-                super(model, brand, engineVolume);
-                this.typeOfBody=typeOfBody;
-        }
+    private TypeOfBody typeOfBody;
+
+    public Car(String model, String brand, double engineVolume, TypeOfBody typeOfBody) {
+        super(model, brand, engineVolume);
+        this.typeOfBody = typeOfBody;
+    }
 
 
     public TypeOfBody getTypeOfBody() {
@@ -53,14 +54,22 @@ public class Car extends ACar  {
 
     @Override
     public void determineTheTypeOfCar() {
-        if (typeOfBody==null){
+        if (typeOfBody == null) {
             System.out.println("Данных недостаточно");
         } else {
-            System.out.println("Тип авто - " +typeOfBody);
+            System.out.println("Тип авто - " + typeOfBody);
         }
 
     }
+
+    @Override
+    public boolean passDiagnostics() {
+         return Math.random() > 0.6;
+    }
+
+
 }
+
 
 
 

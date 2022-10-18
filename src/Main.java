@@ -23,6 +23,16 @@ public class Main {
         Driver<Bus> petr = new Driver<>("Петр", " c водительскими правами категории D", 20, bus2);
         petr.refuelTheCar(bus2);
 
+        boolean success = Data.right("yes", "yes", "yes");
+        if (success) {
+            System.out.println("данные правильные");
+        } else {
+            System.out.println("данные не правильные");
+        }
+
+        passDiagnostics(kia, lada, bmw, audi,
+                truck1, truck, truck3, truck2,
+                bus, bus1, bus2, bus);
 
         printInfo(lada);
         printInfo(audi);
@@ -56,18 +66,45 @@ public class Main {
         System.out.println(car);
 
     }
+
     private static void printInfo(Bus bus) {
         System.out.println(bus);
     }
 
     private static void printInfo(Truck truck) {
         System.out.println(truck);
-    };
+    }
 
+    private static void passDiagnostics (ACar... aCars) {
+        for (ACar aCar : aCars) {
+           passDiagnosticsACar(aCar);
+        }
+    }
 
+    private static void passDiagnosticsACar(ACar aCar) {
+        try {
+            if (!aCar.passDiagnostics()) {
+                throw new RuntimeException("Автомобиль " + aCar.getBrand() + " " + aCar.getModel() + "  не прошёл диагностику");
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,9 +1,9 @@
-public class Bus extends ACar  {
+public class Bus extends ACar {
     private Сapacity сapacity;
 
-    public Bus(String model, String brand, double engineVolume, Сapacity сapacity  ) {
+    public Bus(String model, String brand, double engineVolume, Сapacity сapacity) {
         super(model, brand, engineVolume);
-        this.сapacity=сapacity;
+        this.сapacity = сapacity;
     }
 
     public Сapacity getСapacity() {
@@ -35,7 +35,7 @@ public class Bus extends ACar  {
 
     @Override
     public String toString() {
-        return  "Bus{" +
+        return "Bus{" +
                 "model='" + getModel() + '\'' +
                 ", brand='" + getBrand() + '\'' +
                 ", engineVolume=" + getEngineVolume() +
@@ -51,14 +51,24 @@ public class Bus extends ACar  {
 
     @Override
     public void determineTheTypeOfCar() {
-        if (сapacity==null) {
+        if (сapacity == null) {
             System.out.println("Данных недостаточно");
         } else {
-            System.out.println("Вместимость автобуса - от " + сapacity.getFrom()+ "чел " + " до " + сapacity.getTo());
+            System.out.println("Вместимость автобуса - от " + сapacity.getFrom() + "чел " + " до " + сapacity.getTo());
 
 
+        }
     }
-}}
+
+    @Override
+    public boolean passDiagnostics() {
+        System.out.println("Автобус" + getBrand() + getModel() + "в диагностике не требуется");
+        return true;
+    }
+
+}
+
+
 
 
 
