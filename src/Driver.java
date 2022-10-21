@@ -6,6 +6,7 @@ public class Driver<D extends ACar & Competing> {
     private D motorcar;
 
 
+
     public String getNameOfTheDriver() {
         return nameOfTheDriver;
     }
@@ -89,5 +90,7 @@ public class Driver<D extends ACar & Competing> {
     }
 
 
+    public void add(Driver<?> driver) {
+            }
 }
 

@@ -66,6 +66,16 @@ public class Bus extends ACar {
         return true;
     }
 
+    @Override
+    public void repairTheCar() {
+        System.out.println("Автобус" +getBrand() + getModel() + " отремонтирован");
+    }
+
+    @Override
+    public void offer(ACar aCar) {
+
+    }
+
 }
 
 
