@@ -67,6 +67,16 @@ public class Car extends ACar {
          return Math.random() > 0.6;
     }
 
+    @Override
+    public void repairTheCar() {
+        System.out.println("Машина  "+ getBrand() + getModel() +" отремонтирована");
+    }
+
+    @Override
+    public void offer(ACar aCar) {
+
+    }
+
 
 }
 

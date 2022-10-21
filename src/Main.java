@@ -1,3 +1,7 @@
+import java.util.*;
+
+import static market.Scratch.randomFiling;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -23,21 +27,66 @@ public class Main {
         Driver<Bus> petr = new Driver<>("Петр", " c водительскими правами категории D", 20, bus2);
         petr.refuelTheCar(bus2);
 
+        lada.addDriver(new CategorydriverB("Владислав", " с водительскими права категории В, ", 20, lada));
+        Mechanic<Car> petra = new Mechanic<Car>("Петра", "Иванов", "Звезда");
+        lada.addMechanic(petra);
+        Sponsor mobilPlus = new Sponsor<>("Мобил плюс", 80_000);
+        lada.addMSponsor(mobilPlus);
+
+        truck1.addDriver(new CategorydriverC("Дмитрий", "водительское удостоверение с категией С", 25, truck1));
+        Mechanic<Truck> alexa = new Mechanic<Truck>("Алекса", "Петрова", "Медлайн");
+        truck1.addMechanic(alexa);
+        Sponsor medlain = new Sponsor<>("Медлайн ", 100_000);
+        truck1.addMSponsor(medlain);
+
+        bus2.addDriver(new CategorydriverD("Вячеслав", " с водительским удостоверение категории D", 20, bus2));
+        Mechanic<Bus> pablo = new Mechanic<Bus>("Пабло", "Смирнов", "Плюс минус");
+        bus2.addMechanic(pablo);
+        Sponsor plus = new Sponsor<>("Плюс", 500_000);
+        bus.addMSponsor(plus);
+
+        ServiceStation serviceStation = new ServiceStation();
+        serviceStation.addCar(lada);
+        serviceStation.addTruck(truck3);
+        serviceStation.service();
+        serviceStation.service();
+
+        List<ACar> aCars = List.of(lada, truck1, bus2);
+        for (ACar aCar : aCars) {
+            printInfo(aCar);
+
+        }
+
         boolean success = Data.right("yes", "yes", "yes");
         if (success) {
             System.out.println("данные правильные");
         } else {
             System.out.println("данные не правильные");
         }
+        System.out.println("__________");
+        Queue<String> queue1 = new ArrayDeque<>();
+        Queue<String> queue2 = new ArrayDeque<>();
+        randomFiling(queue1);
+        randomFiling(queue2);
+        System.out.println("Первая очередь - " + queue1);
+        System.out.println("Вторая очередь - " + queue2);
 
-        passDiagnostics(kia, lada, bmw, audi,
-                truck1, truck, truck3, truck2,
-                bus, bus1, bus2, bus);
+        add("баба Яга", queue1, queue2);
+        System.out.println("Первая очередь - " + queue1);
+        System.out.println("Вторая очередь - " + queue2);
+        System.out.println("_______________");
 
-        printInfo(lada);
-        printInfo(audi);
-        printInfo(bmw);
-        printInfo(kia);
+        remove("баба Яга", queue1, queue2);
+        System.out.println("Первая очередь - " + queue1);
+        System.out.println("Вторая очередь - " + queue2);
+        System.out.println("______________");
+
+
+        passDiagnostics(lada, truck1, bus2);
+        printInfo(lada, truck1, bus2);
+        printInfo(audi, truck1, bus2);
+        printInfo(bmw, truck1, bus2);
+        printInfo(kia, truck1, bus2);
         printInfo(bus);
         printInfo(bus1);
         printInfo(bus2);
@@ -60,9 +109,17 @@ public class Main {
         kia.determineTheTypeOfCar();
 
 
+
     }
 
-    private static void printInfo(Car car) {
+    private static void remove(String name, Queue<String> queue1, Queue<String> queue2) {
+    }
+
+    private static void add(String name, Queue<String> queue1, Queue<String> queue2) {
+
+    }
+
+    private static void printInfo(Car car, Truck truck1, Bus bus2) {
         System.out.println(car);
 
     }
@@ -75,9 +132,9 @@ public class Main {
         System.out.println(truck);
     }
 
-    private static void passDiagnostics (ACar... aCars) {
+    private static void passDiagnostics(ACar... aCars) {
         for (ACar aCar : aCars) {
-           passDiagnosticsACar(aCar);
+            passDiagnosticsACar(aCar);
         }
     }
 
@@ -91,9 +148,41 @@ public class Main {
         }
 
     }
+ private static void printInfo(ACar aCar) {
+     System.out.println("Информация по авто" + aCar.getBrand() + aCar.getModel());
+     System.out.println("Водитель - ");
+     for (Driver<?> driver : aCar.getDriver()) {
+         System.out.println(driver.getNameOfTheDriver());
+     }
+     System.out.println("Механик - ");
+     for (Mechanic<?> mechanic : aCar.getMechanic()) {
+         System.out.println(mechanic.getName() + mechanic.getSurname() + mechanic.getCompany());
+     }
+     System.out.println("Спонсоры - ");
+     for (Sponsor sponsor : aCar.getSponsor()) {
+         System.out.println(sponsor.getName() + sponsor.getSupportAmount());
+     }
+     System.out.println();
+
+example();
+ }
+    private  static void example() {
+        List<List<String>> biDemArrList = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            biDemArrList.add(i, new ArrayList<>());
+            for (int j = 0; j < 8; j++) {
+                biDemArrList.get(i).add((i +j)%2==1? "●" : "◯");
+            }
+        }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(biDemArrList.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }}}
 
 
-}
+
 
 
 

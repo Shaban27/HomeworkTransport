@@ -61,6 +61,16 @@ private LoadCapacity loadCapacity;
         return Math.random() >0.8;
     }
 
+    @Override
+    public void repairTheCar() {
+        System.out.println("Грузовик " +getBrand() + getModel() + " отремонтирован");
+    }
+
+    @Override
+    public void offer(ACar aCar) {
+
+    }
+
 
     @Override
     public String toString() {
